@@ -1,0 +1,78 @@
+<div class="product-form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+  <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+  <meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+  <link itemprop="availability" href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+
+  <form action="/cart/add" method="post" enctype="multipart/form-data">
+
+    {% if product.variants.size == 1 and product.options.size == 1 and product.options.first == 'Title' and product.variants.first.title == 'Default Title' %}
+      {% for option in product.options_with_values %}
+        <div class="product-form-input">
+          <div class="product-form-price" data-price-wrapper>
+            <span data-product-price>
+              {{ current_variant.price | money_without_trailing_zeros }}
+            </span>
+
+            {% if product.compare_at_price_max > product.price %}
+              <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+              <s data-compare-price>
+                {% if current_variant.compare_at_price > current_variant.price %}
+                  {{ current_variant.compare_at_price | money_without_trailing_zeros }}
+                {% endif %}
+              </s>
+            {% endif %}
+          </div>
+          <select name="id" class="visually-hidden no-js" data-product-select>
+            {% for variant in product.variants %}
+              <option
+                {% if variant == current_variant %}selected="selected"{% endif %}
+                {% unless variant.available %}disabled="disabled"{% endunless %}
+                value="{{ variant.id }}">
+                  {{ variant.title }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      {% endfor %}
+    {% else %}
+      <label>{{ product.options[0] }}</label>
+      <div class="product-form-input">
+        <div class="product-form-select_wrapper">
+          <select class="product-form-select" name="id" data-product-select>
+            {% for variant in product.variants %}
+              <option
+                {% if variant == current_variant %}selected="selected"{% endif %}
+                {% unless variant.available %}disabled="disabled"{% endunless %}
+                value="{{ variant.id }}">
+                  {{ variant.title }} – {{ variant.price | money_without_trailing_zeros }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    {% endif %}
+
+    <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+    <div class="product-form-quantity">
+      <input class="js-qty" type="text" id="Quantity" name="quantity" value="1" min="1">
+      <a href="#" class="product-form-quantity-increase js-qty_adjust js-qty_adjust--increase" title="Increase Quantity">+</a>
+      <a href="#" class="product-form-quantity-decrease js-qty_adjust js-qty_adjust--decrease" title="Decrease Quantity">-</a>
+    </div>
+
+    <button
+      class="product-form-submit button"
+      type="submit"
+      name="add"
+      data-add-to-cart
+      {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+        <span data-add-to-cart-text>
+          {% if current_variant.available %}
+            {{ 'products.product.add_to_cart' | t }}
+          {% else %}
+            {{ 'products.product.sold_out' | t }}
+          {% endif %}
+        </span>
+    </button>
+  </form>
+
+</div>

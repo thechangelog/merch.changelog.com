@@ -1,0 +1,43 @@
+<header class="header">
+  <div class="header-links">
+    <div class="header-links-inner">
+      <a class="header-back" href="{{ section.settings.back_link_url }}" title="{{ section.settings.back_link_text }}">{{ section.settings.back_link_text }}</a>
+      <nav class="header-nav" role="navigation">
+        <ul class="header-nav-list">
+          {% for link in linklists.main-menu.links %}
+            <li class="header-nav-item{% if link.active %} header-nav-item--active{% endif %}">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+          <li class="header-nav-item header-nav-item--cart{% if template == 'cart' %} header-nav-item--active{% endif %}">
+            <a href="/cart">
+              {{ 'layout.cart.title' | t }}
+              ({{ cart.item_count }})
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="header-logo"><a href="{{ shop.url }}" title="Changelog Shop">Changelog Shop</a></div>
+</header>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "back_link_text",
+        "label": "Back Link Text",
+        "default": "Back to changelog.com"
+      },
+      {
+        "type": "text",
+        "id": "back_link_url",
+        "label": "Back Link URL",
+        "default": "https://changelog.com/"
+      }
+    ]
+  }
+{% endschema %}

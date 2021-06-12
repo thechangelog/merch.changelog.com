@@ -1,0 +1,92 @@
+.header {
+  padding-top: 105px;
+  margin-bottom: 35px;
+
+  @media #{$mobile-up} {
+    padding-top: 65px;
+  }
+
+  &-links {
+    @include position(fixed, 0 0 null 0);
+    z-index: 100;
+    padding: 20px 0;
+    background: rgba($white, 0.98);
+    text-align: center;
+
+    @media #{$mobile-up} {
+      text-align: left;
+    }
+
+    &-inner {
+      @extend .wrap-large;
+      @include clearfix;
+    }
+  }
+
+  &-back,
+  &-nav-item a {
+    @include mono-font();
+    font-size: 0.875em;
+    color: $black;
+  }
+
+  &-back {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    @media #{$mobile-up} {
+      float: left;
+      margin: 0;
+    }
+  }
+
+  &-nav {
+
+
+    @media #{$mobile-up} {
+      float: right;
+    }
+
+    &-list {
+      font-size: 0;
+    }
+
+    &-item {
+      display: inline-block;
+      margin-left: 25px;
+      font-size: 16px;
+
+      &:first-child {
+        margin: 0;
+      }
+
+      @media #{$mobile} {
+        margin-left: 15px;
+      }
+
+      &--cart a {
+        color: darken($green, 15%);
+      }
+
+      a:hover {
+        color: darken($dark-grey, 10%);
+      }
+    }
+  }
+
+  &-logo {
+    margin-top: 20px;
+    text-align: center;
+
+    a {
+      @include size(70px);
+      display: inline-block;
+      margin: 0 auto;
+      text-indent: -9999px;
+      background-image: url("https://cdn.changelog.com/images/brand/changelog-logomark.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

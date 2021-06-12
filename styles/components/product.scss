@@ -1,0 +1,259 @@
+.product {
+
+  &-container {
+    margin-bottom: 70px;
+
+    @media #{$ipad-up} {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-bottom: 50px;
+    }
+  }
+
+  &-form {
+    margin-bottom: 30px;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    label {
+      @include mono-font();
+      width: 100%;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    &-input,
+    &-price {
+      width: 100%;
+    }
+
+    &-price {
+      font-family: $code;
+      margin-bottom: 15px;
+      font-size: 1.75em;
+    }
+
+    &-select,
+    &-quantity input {
+      @include appearance(none);
+      @include sans-serif-font();
+      width: 100%;
+      height: 54px;
+      margin: 0;
+      padding: 5px 15px;
+      background-color: $white;
+      border: 1px solid $medium-grey;
+      border-radius: 3px;
+      outline: none;
+      font-size: 1.125em;
+      font-weight: 500;
+      color: $black;
+    }
+
+    &-select {
+      margin-bottom: 15px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+      }
+
+      &::-ms-expand {
+        display: none;
+      }
+
+      &_wrapper {
+        width: 100%;
+        position: relative;
+
+        &:before {
+          @include position(absolute, 50% 15px null null);
+          content: "";
+          width: 40px;
+          margin-top: -3px;
+          @include triangle(16px, $black, down);
+          pointer-events: none;
+        }
+        &:after {
+          @include position(absolute, 50% 15px null null);
+          @include triangle(16px, $white, down);
+          margin-top: -5px;
+          content: "";
+          pointer-events: none;
+        }
+      }
+    }
+
+    &-quantity {
+      position: relative;
+      width: 90px;
+
+      .cart-item-quantity & {
+        width: 65px;
+      }
+
+      &-increase,
+      &-decrease {
+        @include position(absolute, 0 0 0 null);
+        width: 10px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 8px 5px;
+        text-indent: -9999px;
+        cursor: pointer;
+        outline: none;
+        margin: 10px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      &-increase,
+      &-decrease, {
+        width: 38px;
+        height: 50%;
+        margin: 0;
+      }
+
+      &-increase {
+        bottom: 50%;
+
+        &:before {
+          @include position(absolute, null 14px 6px null);
+          @include triangle(16px, $black, up);
+          content: "";
+
+          .cart-item-quantity & {
+            right: 10px;
+            bottom: 4px;
+            @include triangle(12px, $black, up);
+          }
+        }
+        &:after {
+          @include position(absolute, null 14px 4px null);
+          @include triangle(16px, $white, up);
+          content: "";
+
+          .cart-item-quantity & {
+            right: 10px;
+            bottom: 2px;
+            @include triangle(12px, $white, up);
+          }
+        }
+      }
+
+      &-decrease {
+        top: 50%;
+
+        &:before {
+          @include position(absolute, 6px 14px null null);
+          @include triangle(16px, $black, down);
+          content: "";
+
+          .cart-item-quantity & {
+            right: 10px;
+            top: 4px;
+            @include triangle(12px, $black, down);
+          }
+        }
+        &:after {
+          @include position(absolute, 4px 14px null null);
+          @include triangle(16px, $white, down);
+          content: "";
+
+          .cart-item-quantity & {
+            right: 10px;
+            top: 2px;
+            @include triangle(12px, $white, down);
+          }
+        }
+      }
+
+      input {
+        @include appearance(none);
+        display: inline-block;
+        vertical-align: middle;
+        padding: .05em 1em 0 25px;
+        font-family: $code;
+        font-size: 1em;
+        cursor: pointer;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      &.cart-item-quantity input {
+        height: 40px;
+        padding-left: 12px;
+      }
+
+      input[type=number]::-webkit-inner-spin-button,
+      input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    &-submit {
+      flex: 1 0 auto;
+      width: auto;
+      min-width: 0;
+      height: 54px;
+      margin-left: 20px;
+      font-size: 1.25em;
+    }
+  }
+
+  &-details {
+    margin-bottom: 30px;
+
+    @media #{$ipad-up} {
+      flex: 0 0 330px;
+      margin: 0;
+    }
+
+    &-copy {
+
+      p {
+        margin-bottom: 1.375em;
+        font-size: 15px;
+        line-height: 1.625em;
+      }
+    }
+  }
+
+  &-images {
+    @media #{$ipad-up} {
+      flex: 0 1 auto;
+      margin-right: 30px;
+      width: 100%;
+    }
+
+    &-item {
+      margin-bottom: 25px;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      img {
+        height: auto;
+        width: 100%;
+      }
+
+      &-caption {
+        margin-top: 12px;
+        font-size: 1em;
+        font-style: italic;
+        text-align: center;
+        line-height: 1.25em;
+      }
+    }
+  }
+}

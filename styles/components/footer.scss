@@ -1,0 +1,33 @@
+.footer {
+  margin-top: 50px;
+
+  &-container {
+    @extend .wrap;
+    text-align: center;
+    border-top: 2px solid $grey;
+    padding: 50px 0;
+    width: 100%;
+  }
+
+  &-copy {
+
+    p {
+      font-size: 1em;
+      @media #{$tiny-up} { font-size: 14px; }
+      @media #{$desktop-up} { font-size: 14px; }
+      font-family: $code;
+    }
+  }
+
+  &-link {
+    text-align: center;
+
+    a {
+      display: inline-block;
+      width: 199px;
+      height: 61px;
+      background: url('../assets/footer-logo.svg') no-repeat;
+      text-indent: -9999px;
+    }
+  }
+}

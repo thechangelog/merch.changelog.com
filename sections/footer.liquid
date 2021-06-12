@@ -1,0 +1,29 @@
+<footer class="footer">
+  <div class="footer-container">
+    {% if section.settings.footer_copy != blank %}
+      <div class="footer-copy">
+        {{ section.settings.footer_copy }}
+      </div>
+    {% endif %}
+
+    <div class="footer-link">
+      <a href="{{ section.settings.footer_link_url }}" title="">Changelog.com</a>
+    </div>
+  </div>
+
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "footer_copy",
+        "label": "Footer Copy",
+        "default": "<p>Merch and threads for developers</p>"
+      }
+    ]
+  }
+
+{% endschema %}

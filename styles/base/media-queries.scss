@@ -1,0 +1,23 @@
+// Threshold
+$huge-set: 1290px; // 1200px + sidebar
+$desktop-set: 880px;
+$ipad-set: 760px;
+$mobile-set: 620px;
+$tiny-set: 400px;
+
+// Min
+$huge-up: "only screen and (min-width: #{$huge-set + 1})";
+$desktop-up: "only screen and (min-width: #{$desktop-set + 1})";
+$ipad-up: "only screen and (min-width: #{$ipad-set + 1})";
+$mobile-up: "only screen and (min-width: #{$mobile-set + 1})";
+$tiny-up: "only screen and (min-width: #{$tiny-set + 1})";
+
+// Max
+$huge: "only screen and (max-width: #{$huge-set})";
+$desktop: "only screen and (max-width: #{$desktop-set})";
+$ipad: "only screen and (max-width: #{$ipad-set})";
+$mobile: "only screen and (max-width: #{$mobile-set})";
+$tiny: "only screen and (max-width: #{$tiny-set})";
+
+// @media screen and (max-width: 520px)
+// @media #{$desktop}

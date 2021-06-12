@@ -1,0 +1,27 @@
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visually-hidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visually-hidden.focusable:active, .visually-hidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+%clearfix {
+  @include clearfix;
+}
+
+%hide-text {
+  @include hide-text;
+}
+
+// Sets up position and animation styles for "Read More" text - Use with "position: relative;" on parent
+%more_animation {
+  @include position(absolute, null ($base-spacing / 2) ($base-spacing / 2));
+  margin: 0;
+  opacity: 0;
+  text-align: right;
+  transform: translateX(-3px);
+  transition: all 0.2s $ease-in-out-quad;
+
+  a:hover & {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,13 @@
+<a class="product_list-item" href="{{ product.url }}" title="{{ product.title }}">
+  <div class="product_list-image">
+    {% if product.featured_image.src != blank %}
+      <img srcset="{{ product.featured_image | img_url: '500x', crop: 'center' }}, {{ product.featured_image | img_url: '1000x', crop: 'center' }} 2x" alt="{{ product.featured_image.alt | escape }}">
+    {% else %}
+      <img src="https://via.placeholder.com/500x382?text=Missing+Image" alt="Missing Product Image">
+    {% endif %}
+  </div>
+  <h2 class="product_list-title">{{ product.title }}</h2>
+  {% if product.price != blank %}
+    <h3 class="product_list-price">{{ product.price | money_without_trailing_zeros }}</h3>
+  {% endif %}
+</a>

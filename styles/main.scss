@@ -1,0 +1,32 @@
+@import "vendor/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "base/all";
+@import "components/all";
+@import "layout/all";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $base-background-color;
+  color: $base-font-color;
+}
+
+.main {
+  @extend .wrap;
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.section {
+  background-color: $white;
+
+  &--dark {
+    background-color: $black;
+    color: $white;
+  }
+
+  &-wrap {
+    @extend .wrap;
+    width: 100%;
+  }
+}

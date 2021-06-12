@@ -1,0 +1,39 @@
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+   &%default-ul,
+   &%default-ol {
+     margin: 1em 0 1em 1em;
+     padding: 0 0 0 20px;
+     list-style-type: none;
+
+     li {
+       @include sans-serif-font;
+       margin: .5em 0;
+       font-size: 1.125em;
+       line-height: 1.5em;
+       color: $black;
+
+       a { border-bottom: 2px solid $black; }
+     }
+
+     > ul, ol { margin: 0; }
+   }
+
+   &%default-ul { list-style-type: disc; }
+
+   &%default-ol { list-style-type: decimal; }
+}
+
+dl {
+  margin-bottom: $base-line-height / 2;
+
+  dt {
+    font-weight: bold;
+    margin-top: $base-line-height / 2;
+  }
+
+  dd { margin: 0; }
+}

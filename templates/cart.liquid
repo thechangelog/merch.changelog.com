@@ -1,0 +1,90 @@
+{% if cart.item_count > 0 %}
+
+  <div class="masthead">
+    <h1 class="masthead-title">{{ 'cart.general.title' | t }}</h1>
+
+    {% if product.description != blank %}
+      <div class="masthead-description">
+        {{ product_description[0] }}
+      </div>
+    {% endif %}
+  </div>
+
+  <form action="/cart" method="post" novalidate>
+
+    <div class="cart">
+      <div class="cart-row cart-headings">
+        <div class="cart-column cart-column--large">Item</div>
+        <div class="cart-column">Price</div>
+        <div class="cart-column">Qty</div>
+        <div class="cart-column">Total</div>
+      </div>
+      {% for item in cart.items %}
+        <div class="cart-row cart-item">
+          <div class="cart-column cart-column--large">
+            <a class="cart-item-image" href="{{ item.url }}" title="{{ item.product.title }}">
+              <img srcset="{{ item | img_url: '89x68', crop: 'center' }}, {{ item | img_url: '178x136', crop: 'center' }} 2x" alt="{{ item.product.title | escape }}">
+            </a>
+            <div class="cart-item-details">
+              <h2 class="cart-item-title">
+                <a href="{{ item.url }}" title="{{ item.product.title }}">{{ item.product.title }}</a>
+              </h2>
+              {% unless item.variant.title contains 'Default' %}
+              <h3 class="cart-item-type">{{ item.variant.title }}</h3>
+              {% endunless %}
+            </div>
+          </div>
+          <div class="cart-column">
+            <div class="cart-column-helper">
+              <p class="cart-item-heading">Price</p>
+              <p class="cart-item-price">{{ item.price | money_without_trailing_zeros | replace: '$', '<sup>$</sup>' }}</p>
+            </div>
+          </div>
+          <div class="cart-column">
+            <div class="cart-column-helper cart-column-helper--relative">
+              <p class="cart-item-heading">Qty</p>
+              <div class="cart-item-quantity product-form-quantity">
+                <input class="js-qty" type="text" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+                <a href="#" class="product-form-quantity-increase js-qty_adjust js-qty_adjust--increase" title="Increase Quantity">+</a>
+                <a href="#" class="product-form-quantity-decrease js-qty_adjust js-qty_adjust--decrease" title="Decrease Quantity">-</a>
+              </div>
+              <a class="cart-item-remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
+            </div>
+          </div>
+          <div class="cart-column">
+            <div class="cart-column-helper">
+              <p class="cart-item-heading">Subtotal</p>
+              <p class="cart-item-total">{{ item.line_price | money_without_trailing_zeros | replace: '$', '<sup>$</sup>' }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      <div class="cart-row cart-row--last">
+        <div class="cart-column--large">
+          <p class="cart-message">Shipping will be calculated at checkout</p>
+        </div>
+        <div class="cart-column">
+          <div class="cart-column-helper">
+            <p class="cart-item-heading">Total</p>
+            <p class="cart-total">{{ cart.total_price | money_without_trailing_zeros | replace: '$', '<sup>$</sup>' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} TODO: Style without using "button_group" (Use small buttons) {% endcomment %}
+    <div class="button_group">
+      <input class="button_large" type="submit" name="update" value="Update Cart">
+      <input class="button_large" type="submit" name="checkout" value="Check Out">
+    </div>
+  </form>
+{% else %}
+  <div class="masthead">
+    <h1 class="masthead-title">{{ 'cart.general.title' | t }}</h1>
+
+    <div class="masthead-description">
+      <p>{{ 'cart.general.empty' | t }}</p>
+      <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+      </div>
+  </div>
+{% endif %}

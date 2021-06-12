@@ -1,0 +1,71 @@
+// Typography
+$sans-serif: "Sana Sans", $helvetica;
+$serif: $sans-serif;
+$display: $sans-serif;
+$code: 'Jet Brains Mono', Courier, monospace;
+
+// Sizes
+$base-font-size: 1em;
+$base-line-height: $base-font-size * 1.5;
+$unitless-line-height: $base-line-height / ($base-line-height * 0 + 1); // Strip units from line-height: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height#Prefer_unitless_numbers_for_line-height_values
+$header-line-height: $base-font-size * 1.25;
+$base-border-radius: em(3);
+$base-spacing: 30px;
+$mobile-spacing: 20px;
+
+// Colors
+$black: #101820; // Brand
+$white: white;
+$blue: blue;
+$yellow: yellow;
+$green: #61c192;
+$red: red;
+$pink: pink;
+$purple: purple;
+
+// Grey Scale
+$grey0: #F0F0F0;
+$grey1: #f2f1f1; $light-grey: $grey1; // Brand
+$grey2: #e4e4e4;
+$grey3: #e7e8e9; $grey: $grey3; // Brand
+$grey4: #c2c2c2;
+$grey5: #b9b9b9;
+$grey6: #e0dfe0; $medium-grey: $grey6; // Brand
+$grey7: #474747;
+$grey8: #303030;
+$grey9: #9e9e9e; $dark-grey: $grey9; // Brand
+
+// Brand Colors
+$twitter: #00aced;
+$facebook: #3b5998;
+$googleplus: #dd4b39;
+$pinterest: #cb2027;
+$linkedin: #007bb6;
+$tumblr: #32506d;
+$instagram: #517fa4;
+$dribbble: #ea4c89;
+
+// Background Color
+$base-background-color: white;
+
+// Font Colors
+$base-font-color: $black;
+$base-accent-color: $green;
+
+// Link Colors
+$base-link-color: $green;
+$hover-link-color: $base-accent-color;
+$base-button-color: $hover-link-color;
+$hover-button-color: darken($base-link-color, 10%);
+
+// Border color
+$base-border-color: $grey;
+
+// Forms
+$form-border-color: $base-border-color;
+$form-border-color-hover: darken($base-border-color, 10);
+$form-border-color-focus: $base-accent-color;
+$form-border-radius: $base-border-radius;
+$form-box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
+$form-font-size: $base-font-size;

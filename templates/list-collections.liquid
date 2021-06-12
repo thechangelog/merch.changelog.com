@@ -1,0 +1,25 @@
+
+<div class="masthead">
+  <h1 class="masthead-title">Collections</h1>
+  {% if collection.description != blank %}
+    <div class="masthead-description">
+      <p>{{ collection.description }}</p>
+    </div>
+  {% endif %}
+</div>
+
+{% comment %} Use "product_list" component for "list-collection" content {% endcomment %}
+<div class="product_list">
+  {% for collection in collections %}
+    <a class="product_list-item" href="{{ collection.url }}" title="{{ collection.title }}">
+      <div class="product_list-image">
+        {% if collection.featured_image.src != blank %}
+          <img srcset="{{ collection.featured_image | img_url: '500x', crop: 'center' }}, {{ collection.featured_image | img_url: '1000x', crop: 'center' }} 2x" alt="{{ collection.featured_image.alt | escape }}">
+        {% else %}
+          <img src="https://via.placeholder.com/500x380?text=Missing+Image" alt="Missing Collection Image">
+        {% endif %}
+      </div>
+      <h2 class="product_list-title">{{ collection.title }}</h2>
+    </a>
+  {% endfor %}
+</div>

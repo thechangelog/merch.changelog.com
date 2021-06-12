@@ -1,0 +1,24 @@
+.wrap {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1100px;
+
+  @media screen and (min-width: 520px) {
+    padding: 0 30px;
+  }
+}
+
+.wrap-large {
+  @extend .wrap;
+  max-width: 1260px;
+}
+
+.wrap-medium {
+  @extend .wrap;
+  max-width: 860px;
+}
+
+.wrap-small {
+  @extend .wrap;
+  max-width: 660px;
+}

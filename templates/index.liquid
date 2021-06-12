@@ -1,0 +1,14 @@
+<div class="masthead">
+  <h1 class="masthead-title">{{ collections['homepage'].title }}</h1>
+  {% if collections['homepage'].description != blank %}
+    <div class="masthead-description">
+      <p>{{ collections['homepage'].description }}</p>
+    </div>
+  {% endif %}
+</div>
+
+<div class="product_list">
+  {% for product in collections['homepage'].products %}
+    {% include 'product_list-item' %}
+  {% endfor %}
+</div>

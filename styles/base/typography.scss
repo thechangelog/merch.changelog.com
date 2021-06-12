@@ -1,0 +1,114 @@
+@mixin display-font() {
+  font-family: $display;
+  font-weight: 400;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+@mixin sans-serif-font() {
+  font-family: $sans-serif;
+}
+
+@mixin serif-font() {
+  font-family: $serif;
+  line-height: 1.5em;
+}
+
+@mixin mono-font() {
+  font-family: $code;
+  line-height: 1.5em;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: $base-background-color;
+  color: $base-font-color;
+  font-family: $sans-serif;
+  font-size: $base-font-size;
+  line-height: $unitless-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  text-rendering: optimizeLegibility; // Fix the character spacing for headings
+}
+
+h1, h2, h3, h4, h5, h6 { @include sans-serif-font(); }
+
+h1 {
+  font-size: 2.25em;
+
+  @media #{$tiny-up} { font-size: 2.5em; }
+  @media #{$ipad-up} { font-size: 2.75em; }
+  @media #{$desktop-up} { font-size: 3em; }
+}
+
+h2 {
+  font-size: 1.6875em;
+
+  @media #{$tiny-up} { font-size: 1.8125em; }
+  @media #{$desktop-up} { font-size: 2em; }
+}
+
+h3 {
+  font-size: 1.5em;
+
+  @media #{$tiny-up} { font-size: 1.625em; }
+  @media #{$desktop-up} { font-size: 1.75em; }
+}
+
+h4 {
+  font-size: 1.375em;
+
+  @media #{$tiny-up} { font-size: 1.4375em; }
+  @media #{$desktop-up} { font-size: 1.5em; }
+}
+
+h5 {
+  font-size: 1.25em;
+
+  @media #{$tiny-up} { font-size: 1.3125em; }
+  @media #{$desktop-up} { font-size: 1.375em; }
+}
+
+h6 {
+  font-size: 1em;
+
+  @media #{$tiny-up} { font-size: 1.125em; }
+  @media #{$desktop-up} { font-size: 1.25em; }
+}
+
+p {
+  @include sans-serif-font();
+  margin: 0 0 1.25em;
+
+  @media #{$mobile-up} { font-size: 1.125em; }
+}
+
+a {
+  transition: color .1s linear;
+  color: $base-link-color;
+  text-decoration: none;
+  backface-visibility: hidden;
+  transform: scale(1);
+
+  &:hover,
+  &:focus {
+    color: $hover-link-color;
+    outline: none;
+  }
+}
+
+hr {
+  border-bottom: 2px solid $black;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 40px 0;
+  @media #{$mobile-up} { margin: 50px 0; }
+}
+
+img {
+  margin: 0;
+  max-width: 100%;
+}

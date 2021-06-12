@@ -1,0 +1,44 @@
+{
+  "current": {
+    "social_twitter_link": "",
+    "favicon": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#1990c6",
+    "checkout_button_color": "#1990c6",
+    "checkout_error_color": "#ff6d6d",
+    "cart_notes_enable": true,
+    "favicon_enable": true,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "back_link_text": "Back to changelog.com",
+          "back_link_url": "https:\/\/changelog.com\/"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer_copy": "<p>Merch and threads for developers<\/p>"
+        }
+      }
+    },
+    "content_for_index": []
+  },
+  "presets": {
+    "Default": {
+      "cart_notes_enable": true,
+      "favicon_enable": true
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.button_group {
+  $max-width-group: 540px;
+  $min-width-button: 160px;
+  --max-width-group: 540px;
+  --min-width-button: 160px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: $base-spacing auto 0;
+  max-width: $max-width-group;
+  max-width: var(--max-width-group);
+
+  .button_large {
+    min-width: $min-width-button;
+    min-width: var(--min-width-button);
+    flex: 1 0 0;
+    margin: 10px;
+  }
+}

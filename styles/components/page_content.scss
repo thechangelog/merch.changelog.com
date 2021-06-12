@@ -1,0 +1,11 @@
+.page_content {
+  max-width: 780px;
+  margin: 40px auto;
+
+  @media #{$mobile-up} {
+    margin: 50px auto;
+  }
+  @media #{$desktop-up} {
+    margin: 80px auto;
+  }
+}

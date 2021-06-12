@@ -1,0 +1,117 @@
+.richtext {
+  font-size: 16px;
+
+  p {
+    margin: 0 0 1em 0;
+    line-height: 1.5em;
+  }
+
+  a {
+    color: $green;
+    font-weight: 500;
+    text-decoration: underline;
+
+    &:hover {
+      color: darken($green, 10%);
+    }
+  }
+
+  // If a <code> tag is within a <p> tag show it as a snippet
+  p code {
+    background: rgba($black, .06);
+    // border: 1px solid rgba($black, .1);
+    color: $black;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1;
+    padding: .35em .5em;
+  }
+
+  ul {
+    @extend %default-ul;
+  }
+
+  ol {
+    @extend %default-ol;
+  }
+
+  h1 {
+    font-size: 1.75em;
+    margin-top: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: 1.5em;
+  }
+
+  h3 {
+    font-size: 1.25em;
+    margin-top: 1.5em;
+  }
+
+  h4 {
+    font-size: 1.125em;
+    margin-top: 1.25em;
+  }
+
+  h5 {
+    font-size: 1em;
+    margin-top: 1.25em;
+  }
+
+  h6 {
+    font-size: 0.9em;
+    margin-top: 1.25em;
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-weight: 900;
+    margin-bottom: .5em;
+    a {
+      font-weight: 900;
+    }
+  }
+
+  hr {
+    border: 2px solid $grey;
+    clear: both;
+    margin: 2em 0;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+
+    @media #{$desktop-up} {
+      margin: 50px -5%;
+      width: 110%;
+      max-width: 110%;
+    }
+  }
+
+  // inline tags
+  strong {
+    color: $black;
+    font-weight: 700;
+  }
+
+  mark {
+    background-color: $yellow;
+    color: $black;
+  }
+
+  // Responsive iframes and videos
+  .video-container {
+    height: 0;
+    margin: 1rem 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+
+    iframe {
+      @include position(absolute, 0);
+      @include size(100%);
+    }
+  }
+}
