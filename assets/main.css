@@ -1013,7 +1013,7 @@ button {
       display: inline-block;
       margin: 0 auto;
       text-indent: -9999px;
-      background-image: url("https://cdn.changelog.com/images/brand/changelog-logomark.svg");
+      background-image: url("https://cdn.changelog.com/static/images/brand/changelog-logomark.svg");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center; }
