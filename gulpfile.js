@@ -1,11 +1,11 @@
 const gulp = require('gulp');
 const themeKit = require('@shopify/themekit');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 
 gulp.task('sass', function() {
   return gulp.src('styles/main.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('assets'))
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('assets'));
 });
 
 gulp.task('watch', function(){
@@ -14,4 +14,4 @@ gulp.task('watch', function(){
     allowLive: true,
     env: 'development'
   })
-})
+});
