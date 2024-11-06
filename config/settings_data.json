@@ -23,13 +23,13 @@
         "type": "header",
         "settings": {
           "back_link_text": "GOTO changelog.com",
-          "back_link_url": "https://changelog.com/"
+          "back_link_url": "https://changelog.com"
         }
       },
       "footer": {
         "type": "footer",
         "settings": {
-          "footer_copy": "<p>World-class merch for world-class developers</p>",
+          "footer_copy": "<p>World-class merch for the world's classiest devs</p>",
           "footer_link_url": "https://changelog.com"
         }
       }

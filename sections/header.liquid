@@ -1,3 +1,21 @@
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "text",
+        "id": "back_link_text",
+        "label": "Back Link Text"
+      },
+      {
+        "type": "text",
+        "id": "back_link_url",
+        "label": "Back Link URL"
+      }
+    ]
+  }
+{% endschema %}
+
 <header class="header">
   <div class="header-links">
     <div class="header-links-inner">
@@ -19,25 +37,5 @@
       </nav>
     </div>
   </div>
-  <div class="header-logo"><a href="{{ shop.url }}" title="Changelog Shop">Changelog Shop</a></div>
+  <div class="header-logo"><a href="{{ shop.url }}" title="Merch Home">Merch Home</a></div>
 </header>
-
-{% schema %}
-  {
-    "name": "Header",
-    "settings": [
-      {
-        "type": "text",
-        "id": "back_link_text",
-        "label": "Back Link Text",
-        "default": "Back to changelog.com"
-      },
-      {
-        "type": "text",
-        "id": "back_link_url",
-        "label": "Back Link URL",
-        "default": "https://changelog.com/"
-      }
-    ]
-  }
-{% endschema %}
