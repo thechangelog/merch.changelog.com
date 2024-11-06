@@ -37,6 +37,9 @@ Push changes to Shopify via:
 shopify theme push --store=changelog
 ```
 
+## Config
+
+We git ignore `config/settings_data.json` because this file is modified locally on Shopify when admins make changes in the Theme Editor. We do not ignore `config/settings_schema.json`, however, because it works in tandem with `{% schema %}` blocks to define available config settings in the Theme Editor.
 
 ## Code of Conduct
 

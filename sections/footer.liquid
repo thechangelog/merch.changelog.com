@@ -1,3 +1,24 @@
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "footer_copy",
+        "label": "Footer Copy",
+        "default": "<p>Simply the best threads for developers</p>"
+      },
+      {
+        "type": "text",
+        "id": "footer_link_url",
+        "label": "Footer link URL",
+        "default": "https://changelog.com"
+      }
+    ]
+  }
+{% endschema %}
+
+
 <footer class="footer">
   <div class="footer-container">
     {% if section.settings.footer_copy != blank %}
@@ -7,23 +28,7 @@
     {% endif %}
 
     <div class="footer-link">
-      <a href="{{ section.settings.footer_link_url }}" title="">Changelog.com</a>
+      <a href="{{ section.settings.footer_link_url }}" title="GOTO changelog.com">changelog.com</a>
     </div>
   </div>
-
 </footer>
-
-{% schema %}
-  {
-    "name": "Footer",
-    "settings": [
-      {
-        "type": "richtext",
-        "id": "footer_copy",
-        "label": "Footer Copy",
-        "default": "<p>Merch and threads for developers</p>"
-      }
-    ]
-  }
-
-{% endschema %}
