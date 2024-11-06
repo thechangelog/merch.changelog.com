@@ -31,15 +31,19 @@ First, make sure you have the [Shopify CLI](https://shopify.dev/docs/api/shopify
 npm install -g @shopify/cli@latest
 ```
 
+Then ensure you have the most recent `config/settings_data.json` from Shopify's Theme Editor. If you do not, pushing your local `settings_data.json` will override any changes made there.
+
 Push changes to Shopify via:
 
 ```
 shopify theme push --store=changelog
 ```
 
-## Config
+If you want to get rid of this error message:
 
-We git ignore `config/settings_data.json` because this file is modified locally on Shopify when admins make changes in the Theme Editor. We do not ignore `config/settings_schema.json`, however, because it works in tandem with `{% schema %}` blocks to define available config settings in the Theme Editor.
+```
+Failed to delete file "config/settings_data.json" from remote theme.
+```
 
 ## Code of Conduct
 

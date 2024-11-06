@@ -5,14 +5,12 @@
       {
         "type": "richtext",
         "id": "footer_copy",
-        "label": "Footer Copy",
-        "default": "<p>Simply the best threads for developers</p>"
+        "label": "Footer Copy"
       },
       {
         "type": "text",
         "id": "footer_link_url",
-        "label": "Footer link URL",
-        "default": "https://changelog.com"
+        "label": "Footer link URL"
       }
     ]
   }
@@ -21,14 +19,16 @@
 
 <footer class="footer">
   <div class="footer-container">
-    {% if section.settings.footer_copy != blank %}
-      <div class="footer-copy">
-        {{ section.settings.footer_copy }}
-      </div>
-    {% endif %}
+  {% if section.settings.footer_copy != blank %}
+    <div class="footer-copy">
+      {{ section.settings.footer_copy }}
+    </div>
+  {% endif %}
 
+  {% if section.settings.footer_link_url != blank %}
     <div class="footer-link">
       <a href="{{ section.settings.footer_link_url }}" title="GOTO changelog.com">changelog.com</a>
     </div>
+  {% endif %}
   </div>
 </footer>
