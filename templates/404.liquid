@@ -1,7 +1,26 @@
 <div class="masthead">
-  <h1 class="masthead-title">{{ 'general.404.title' | t }}</h1>
+  <h1 class="masthead-title">Oops! This is a 404</h1>
 
   <div class="masthead-description">
-    <p>{{ 'general.404.subtext_html' | t }}</p>
+    <p>Nothing to see here. Maybe enjoy some podcast clips instead?</p>
   </div>
+
+  <div class="richtext">
+    <figure class="richtext-figure">
+      <div class="video-container">
+        <iframe
+          id="clips"
+          title="Changelog clips on YouTube"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+    </figure>
+  </div>
+
+  <script>
+  let frame = document.getElementById("clips");
+  let index = Math.floor(Math.random() * 100);
+  frame.src = `https://www.youtube-nocookie.com/embed?list=PLCzseuA9sYreJ1p9RXR6Z667mrMyHXAeH&autoplay=1&index=` + index;
+  </script>
 </div>
