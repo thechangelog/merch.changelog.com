@@ -12,12 +12,12 @@
   <div class="masthead">
 
     <h1 class="masthead-title">{{ product.title }}</h1>
-    
-    {% if product.description != blank %}
-      <div class="masthead-description">
-        {{ product.description }}
-      </div>
-    {% endif %}
+
+  {% if product.description != blank %}
+    <div class="masthead-description">
+      {{ product.description }}
+    </div>
+  {% endif %}
 
   </div>
 
@@ -45,7 +45,7 @@
           {% endif %}
         </div>
       {% endfor %}
-      
+
     </div>
   </div>
 

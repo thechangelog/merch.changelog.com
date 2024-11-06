@@ -7,7 +7,14 @@
     {% endif %}
   </div>
   <h2 class="product_list-title">{{ product.title }}</h2>
+{% if product.compare_at_price > product.price %}
+  <h3 class="product_list-price ">
+    <span class="original-price" style="text-decoration: line-through; opacity: .8; margin-right: 7px;">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+    <span class="current-price">{{ product.price | money_without_trailing_zeros }}</span>
+  </h3>
+{% else %}
   {% if product.price != blank %}
-    <h3 class="product_list-price">{{ product.price | money_without_trailing_zeros }}</h3>
+    <h3 class="product_list-price ">{{ product.price | money_without_trailing_zeros }}</h3>
   {% endif %}
+{% endif %}
 </a>
