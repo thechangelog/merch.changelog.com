@@ -30,3 +30,25 @@ body {
     width: 100%;
   }
 }
+
+.banner {
+  position: fixed;
+  color: $white;
+  font-family: $sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #59b287;
+  z-index: 1000;
+  width: 100%;
+  padding: 10px;
+
+  @media #{$mobile-up} {
+    width: auto;
+    top: -37px;
+    left: -119px;
+    padding: 10px 60px;
+    transform: rotate(320deg);
+    transform-origin: top right;
+  }
+}
