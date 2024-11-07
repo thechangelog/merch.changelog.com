@@ -44,8 +44,8 @@
                 {% if variant == current_variant %}selected="selected"{% endif %}
                 {% unless variant.available %}disabled="disabled"{% endunless %}
                 value="{{ variant.id }}">
-                  {{ variant.title }} – {{ variant.price | money_without_trailing_zeros }}
-              </option>
+                  {{ variant.title }} – {{ variant.price | money_without_trailing_zeros }}{% if variant.available and variant.inventory_quantity < 10 %} (only {{variant.inventory_quantity}} left){% endif %}
+                </option>
             {% endfor %}
           </select>
         </div>
